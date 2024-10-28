@@ -23,7 +23,29 @@
 	
 		function sledztwo()
 		{
-			
+			var liczba = document.getElementById("liczba").value;
+            var wynikDiv = document.getElementById("wynik");
+            
+            wynikDiv.innerHTML = "";
+
+            if (isNaN(liczba) || liczba < 0 || liczba > 9) {
+                wynikDiv.textContent = "No sh*t Sherlock!";
+                return;
+            }
+
+            liczba = parseInt(liczba);
+
+            for (var i = 1; i <= 9; i++) {
+                var roznica = Math.abs(liczba - i);
+
+                if (i < liczba) {
+                    wynikDiv.innerHTML += i + " jest niewinne, jest o " + roznica + " mniejsze niż morderca.<br>";
+                } else if (i === liczba) {
+                    wynikDiv.innerHTML += i + " jest mordercą! Aresztuj je Watsonie.<br>";
+                } else {
+                    wynikDiv.innerHTML += i + " jest niewinne, jest o " + roznica + " większe niż morderca.<br>";
+                }
+            }
 		}
 
 	</script>

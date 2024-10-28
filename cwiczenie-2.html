@@ -23,7 +23,41 @@
 	
 		function generuj()
 		{
-			
+			var x = document.getElementById("x").value;
+
+			var wynikDiv = document.getElementById("wynik");
+			wynikDiv.innerHTML = "";
+
+			if (isNaN(x)) {
+                wynikDiv.textContent = "Podane x nie jest liczbą!";
+                return;
+            }
+            
+            x = parseInt(x);
+            
+            if (x < 0) {
+                wynikDiv.textContent = "Podane x jest ujemne!";
+                return;
+            } else if (x === 0) {
+                wynikDiv.textContent = "Podane x jest równe zero!";
+                return;
+            }
+            
+            var parzyste = "";
+            var nieparzyste = "";
+
+            for (var i = 1; i <= x; i++) {
+                if (i % 2 == 0) {
+                    parzyste += i + " ";
+                } else {
+                    nieparzyste += i + " ";
+                }
+            }
+
+			wynikDiv.textContent = "Parzyste: "+parzyste+" Nieparzyste: "+nieparzyste;
+
+
+
 		}
 
 	</script>
